@@ -17,9 +17,14 @@
 ## Converting PyTorch Model to ONNX
 
 ```
-$ python pytorch_to_onnx.py <pth file path>
+$ python pytorch_to_onnx.py <.pth file path>
 ```
 
+  ### Requirements
+  - Protobuf
+  - PyCuda
+  - ONNX
+  - TensorRT - comes pre-built on Jetpack SDK
 
 
 
@@ -27,7 +32,5 @@ $ python pytorch_to_onnx.py <pth file path>
 
 
 
-
-### requirements
-- pycuda
-- 
+## Credit
+- Initial YoloV4 PyTorch Implementation from https://github.com/Tianxiaomo/pytorch-YOLOv4
