@@ -53,14 +53,14 @@ An example;
 ```
 $ /usr/src/tensorrt/bin/./trtexec --onnx=test1.onnx --explicitBatch --saveEngine=Yolov4_DLA1_int8.trt --useDLACore=1 --workspace=1000 --int8 --allowGPUFallback
 ```
-- `--onnx`             path of onnx model
-- `--explicitBatch`    Use explicit batch sizes when building the engine (default = implicit)
--  `--saveEngine`      path of trt file - where to save engine
-- `--useDLACore`       which DLA core to use (0 or 1)
-- `--workspace`        size of memory allowed (in MB) to be used during inferencing - you may need more
-- `--fp16`             enable floating point 16 precision
-- `allowGPUFallback`   not every operation is supported on the DLA's. You must have this to be able to support every operation
-
+- `--onnx=`              path of onnx model
+- `--explicitBatch`      Use explicit batch sizes when building the engine (default = implicit)
+-  `--saveEngine=`       path of trt file - where to save engine
+- `--useDLACore=`        which DLA core to use (0 or 1)
+- `--workspace=`         size of memory allowed (in MB) to be used during inferencing - you may need more
+- `--fp16`               enable floating point 16 precision
+- `--allowGPUFallback`   not every operation is supported on the DLA's. You must have this to be able to support every operation
+- `--device=`            Which GPU device to use (default is 0) - Jetson only has one GPU so this wouldnt make adifference for us
 See https://github.com/NVIDIA/TensorRT/tree/master/samples/opensource/trtexec for more information about arguments and usage.
 
 ## Credit
