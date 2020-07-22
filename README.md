@@ -15,7 +15,6 @@
 - When training is complete, download the weights file - "Yolov4_epoch<latest epoch>".pth
   
 ## Converting PyTorch Model to ONNX
-
 ```
 $ python pytorch_to_onnx.py <.pth file path>
 ```
@@ -26,11 +25,12 @@ $ python pytorch_to_onnx.py <.pth file path>
   - ONNX
   - TensorRT - comes pre-built on Jetpack SDK
 
+## Create TRT Engine from ONNX Model
 
-
-
+### Building trtexec
 
 
 
 ## Credit
 - Initial YoloV4 PyTorch Implementation from https://github.com/Tianxiaomo/pytorch-YOLOv4
+- Dataset from https://public.roboflow.ai/object-detection/raccoon
