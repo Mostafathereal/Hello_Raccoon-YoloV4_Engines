@@ -1,0 +1,78 @@
+&&&& RUNNING TensorRT.trtexec # /usr/src/tensorrt/bin/./trtexec --loadEngine=Yolov4_DLA1_FP16.trt --best
+[07/22/2020-18:39:39] [I] === Model Options ===
+[07/22/2020-18:39:39] [I] Format: *
+[07/22/2020-18:39:39] [I] Model: 
+[07/22/2020-18:39:39] [I] Output:
+[07/22/2020-18:39:39] [I] === Build Options ===
+[07/22/2020-18:39:39] [I] Max batch: 1
+[07/22/2020-18:39:39] [I] Workspace: 16 MB
+[07/22/2020-18:39:39] [I] minTiming: 1
+[07/22/2020-18:39:39] [I] avgTiming: 8
+[07/22/2020-18:39:39] [I] Precision: FP32+FP16+INT8
+[07/22/2020-18:39:39] [I] Calibration: Dynamic
+[07/22/2020-18:39:39] [I] Safe mode: Disabled
+[07/22/2020-18:39:39] [I] Save engine: 
+[07/22/2020-18:39:39] [I] Load engine: Yolov4_DLA1_FP16.trt
+[07/22/2020-18:39:39] [I] Builder Cache: Enabled
+[07/22/2020-18:39:39] [I] NVTX verbosity: 0
+[07/22/2020-18:39:39] [I] Inputs format: fp32:CHW
+[07/22/2020-18:39:39] [I] Outputs format: fp32:CHW
+[07/22/2020-18:39:39] [I] Input build shapes: model
+[07/22/2020-18:39:39] [I] Input calibration shapes: model
+[07/22/2020-18:39:39] [I] === System Options ===
+[07/22/2020-18:39:39] [I] Device: 0
+[07/22/2020-18:39:39] [I] DLACore: 
+[07/22/2020-18:39:39] [I] Plugins:
+[07/22/2020-18:39:39] [I] === Inference Options ===
+[07/22/2020-18:39:39] [I] Batch: 1
+[07/22/2020-18:39:39] [I] Input inference shapes: model
+[07/22/2020-18:39:39] [I] Iterations: 10
+[07/22/2020-18:39:39] [I] Duration: 3s (+ 200ms warm up)
+[07/22/2020-18:39:39] [I] Sleep time: 0ms
+[07/22/2020-18:39:39] [I] Streams: 1
+[07/22/2020-18:39:39] [I] ExposeDMA: Disabled
+[07/22/2020-18:39:39] [I] Spin-wait: Disabled
+[07/22/2020-18:39:39] [I] Multithreading: Disabled
+[07/22/2020-18:39:39] [I] CUDA Graph: Disabled
+[07/22/2020-18:39:39] [I] Skip inference: Disabled
+[07/22/2020-18:39:39] [I] Inputs:
+[07/22/2020-18:39:39] [I] === Reporting Options ===
+[07/22/2020-18:39:39] [I] Verbose: Disabled
+[07/22/2020-18:39:39] [I] Averages: 10 inferences
+[07/22/2020-18:39:39] [I] Percentile: 99
+[07/22/2020-18:39:39] [I] Dump output: Disabled
+[07/22/2020-18:39:39] [I] Profile: Disabled
+[07/22/2020-18:39:39] [I] Export timing to JSON file: 
+[07/22/2020-18:39:39] [I] Export output to JSON file: 
+[07/22/2020-18:39:39] [I] Export profile to JSON file: 
+[07/22/2020-18:39:39] [I] 
+[07/22/2020-18:39:44] [I] Starting inference threads
+[07/22/2020-18:39:47] [I] Warmup completed 1 queries over 200 ms
+[07/22/2020-18:39:47] [I] Timing trace has 64 queries over 3.09354 s
+[07/22/2020-18:39:47] [I] Trace averages of 10 runs:
+[07/22/2020-18:39:47] [I] Average on 10 runs - GPU latency: 56.9972 ms - Host latency: 57.1322 ms (end to end 57.18 ms, enqueue 13.1863 ms)
+[07/22/2020-18:39:47] [I] Average on 10 runs - GPU latency: 46.3788 ms - Host latency: 46.4894 ms (end to end 46.5006 ms, enqueue 10.663 ms)
+[07/22/2020-18:39:47] [I] Average on 10 runs - GPU latency: 48.0778 ms - Host latency: 48.1892 ms (end to end 48.1996 ms, enqueue 10.9393 ms)
+[07/22/2020-18:39:47] [I] Average on 10 runs - GPU latency: 46.409 ms - Host latency: 46.5204 ms (end to end 46.5323 ms, enqueue 11.2211 ms)
+[07/22/2020-18:39:47] [I] Average on 10 runs - GPU latency: 45.99 ms - Host latency: 46.1006 ms (end to end 46.1124 ms, enqueue 10.568 ms)
+[07/22/2020-18:39:47] [I] Average on 10 runs - GPU latency: 46.2824 ms - Host latency: 46.3931 ms (end to end 46.4054 ms, enqueue 11.2336 ms)
+[07/22/2020-18:39:47] [I] Host Latency
+[07/22/2020-18:39:47] [I] min: 45.9417 ms (end to end 45.9509 ms)
+[07/22/2020-18:39:47] [I] max: 94.0599 ms (end to end 94.0751 ms)
+[07/22/2020-18:39:47] [I] mean: 48.3194 ms (end to end 48.3365 ms)
+[07/22/2020-18:39:47] [I] median: 46.2338 ms (end to end 46.2462 ms)
+[07/22/2020-18:39:47] [I] percentile: 94.0599 ms at 99% (end to end 94.0751 ms at 99%)
+[07/22/2020-18:39:47] [I] throughput: 20.6883 qps
+[07/22/2020-18:39:47] [I] walltime: 3.09354 s
+[07/22/2020-18:39:47] [I] Enqueue Time
+[07/22/2020-18:39:47] [I] min: 9.48798 ms
+[07/22/2020-18:39:47] [I] max: 31.3763 ms
+[07/22/2020-18:39:47] [I] median: 10.8976 ms
+[07/22/2020-18:39:47] [I] GPU Compute
+[07/22/2020-18:39:47] [I] min: 45.8323 ms
+[07/22/2020-18:39:47] [I] max: 93.8353 ms
+[07/22/2020-18:39:47] [I] mean: 48.2047 ms
+[07/22/2020-18:39:47] [I] median: 46.1222 ms
+[07/22/2020-18:39:47] [I] percentile: 93.8353 ms at 99%
+[07/22/2020-18:39:47] [I] total compute time: 3.0851 s
+&&&& PASSED TensorRT.trtexec # /usr/src/tensorrt/bin/./trtexec --loadEngine=Yolov4_DLA1_FP16.trt --best
