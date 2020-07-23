@@ -37,7 +37,7 @@ trtexec has two main functionalities; benchmarking networks on random data, and 
 
 Once you have TensorRT installed, go to the trtexec sample folder and build the tool - simple as that. 
 ```
-$ cd cd /usr/src/tensorrt/samples/trtexec 
+$ cd /usr/src/tensorrt/samples/trtexec 
 $ sudo make
 ```
 Compilation will prompt you to copy all the python example files to the bin folder of TensorRT, go ahead and do that.
