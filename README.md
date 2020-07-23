@@ -5,7 +5,7 @@
 - YoloV4 (PyTorch) is trained on a raccoon dataset using Colab (bless you Google and your infinite cash pile) 
 - PyTorch model is converted to ONNX Form
 - ONNX model is used to then build a TensorRT Egnine
-- running engines with on Nvidia Jetson Xavier NX to make use of those DLA's (Deep Learning Accelerators, for inference)
+- running engines with on Nvidia Jetson Xavier NX - using GPU and DLA's 
 
 ## Training on Google Colab
 - Follow the "YoloV4_Custom_Train" notebook I created above 
@@ -15,15 +15,18 @@
 - When training is complete, download the weights file - "Yolov4_epoch<latest epoch>".pth
   
 ## Converting PyTorch Model to ONNX
-```
-$ python pytorch_to_onnx.py <.pth file path>
-```
 
-  ### Requirements
-  - Protobuf
-  - PyCuda
-  - ONNX
-  - TensorRT
+### Requirements
+- Protobuf
+- PyCuda
+- ONNX
+- TensorRT
+
+Firstly, make sure you have the PyTorch class of your model. Then run;
+```
+$ python pytorch_to_onnx.py <path to model weights> 
+```
+Feel free to edit the script to parameterize any of the arguments used in the export command
 
 ## Create TRT Engine from ONNX Model
 First you need to have TensorRT installed on your machine. If you are working on a jetson, it comes pre-built with the Jetpack SDK. If not, follow installation instructions here https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html
@@ -63,6 +66,24 @@ $ /usr/src/tensorrt/bin/./trtexec --onnx=test1.onnx --explicitBatch --saveEngine
 - `--device=`            Which GPU device to use (default is 0) - Jetson only has one GPU so this wouldnt make adifference for us
 See https://github.com/NVIDIA/TensorRT/tree/master/samples/opensource/trtexec for more information about arguments and usage.
 
+## Benchmarking
+If we pipe the information that the `trtexec` command displays, we can compare the performances of different engines. Below is some of the benchmarks I've done myself. Everything here is generated with a batch size of 1 and a stream of 1.
+
+| Precision | DLA | Throughput (QPS) |
+|-----------|-----|------------------|
+| int8      | No  |     61.71        |
+| fp16      | No  |     36.77        |
+| int8      | Yes |     31.23        |
+| fp16      | Yes |     20.69        |
+
+I'll be updating this table as I continue benchmarking and acheivebetter results.
+
+### Possible Improvements
+- Increase batch size
+- Increase # streams
+- Use compact version of model (Yolov4-tiny)
+- Allocate more memory to the engine 
+ 
 ## Credit
 - Initial YoloV4 PyTorch Implementation from https://github.com/Tianxiaomo/pytorch-YOLOv4
 - Dataset from https://public.roboflow.ai/object-detection/raccoon
