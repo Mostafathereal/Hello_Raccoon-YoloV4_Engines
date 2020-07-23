@@ -86,4 +86,5 @@ I'll be updating this table as I continue benchmarking and acheivebetter results
  
 ## Credit
 - Initial YoloV4 PyTorch Implementation from https://github.com/Tianxiaomo/pytorch-YOLOv4
+  - models.py file
 - Dataset from https://public.roboflow.ai/object-detection/raccoon
