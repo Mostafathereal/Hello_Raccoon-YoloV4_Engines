@@ -16,7 +16,7 @@ https://drive.google.com/drive/folders/1aMiWU2l_wy2ssDV21KPPnjARXZAezMwz?usp=sha
 - Data set for this project collected from Roboflow.ai 
   - They provide data preprossessing and augmentation services
 - Depending on the format of your dataset you may have to change the `get_item` method in "dataset.py"
-- When training is complete, download the weights file - "Yolov4_epoch<latest epoch>".pth
+- When training is complete, download the weights file - "Yolov4_epoch\<latest epoch\>".pth
   
 ## Converting PyTorch Model to ONNX
 
@@ -73,14 +73,16 @@ See https://github.com/NVIDIA/TensorRT/tree/master/samples/opensource/trtexec fo
 ## Benchmarking
 If we pipe the information that the `trtexec` command displays, we can compare the performances of different engines. Below is some of the benchmarks I've done myself. Everything here is generated with a batch size of 1 and a stream of 1.
 
-| Precision | DLA | Throughput (QPS) |
+| Precision | DLA | Throughput (QPS) |      
 |-----------|-----|------------------|
 | int8      | No  |     61.71        |
 | fp16      | No  |     36.77        |
 | int8      | Yes |     31.23        |
 | fp16      | Yes |     20.69        |
 
-I'll be updating this table as I continue benchmarking and acheivebetter results.
+It is worth noting that the DLA's actually perform a bit less than the GPU. Firstly the on board GPU has 48 tensor cores, and the GPU is more suited for parallel computation on all operations - not all operations required are able to run on the DLA so overhead may be also a factor. So this may not be that surprising. Also, remember that the purpose of the DLA's is to offload tasks from the GPU to allow for many models running concurrently, not to replace the GPU. See the Docker demos where you can run 7 DL models at the same time on the Xavier NX. https://github.com/NVIDIA-AI-IOT/jetson-cloudnative-demo
+
+Never the less, improvements can alwyas be made and the Xavier NX should be able to do better than 20 to 60 QPS throughput. I'll be updating this table as I continue benchmarking and acheive better results.
 
 ### Possible Improvements
 - Increase batch size
