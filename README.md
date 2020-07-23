@@ -7,6 +7,10 @@
 - ONNX model is used to then build a TensorRT Egnine
 - running engines with on Nvidia Jetson Xavier NX - using GPU and DLA's 
 
+### Large files
+Please see this Google drive folder for large files including the pytorch weights, onnx model, and the inference engines
+https://drive.google.com/drive/folders/1aMiWU2l_wy2ssDV21KPPnjARXZAezMwz?usp=sharing
+
 ## Training on Google Colab
 - Follow the "YoloV4_Custom_Train" notebook I created above 
 - Data set for this project collected from Roboflow.ai 
