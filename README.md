@@ -24,7 +24,7 @@ https://drive.google.com/drive/folders/1aMiWU2l_wy2ssDV21KPPnjARXZAezMwz?usp=sha
 - Protobuf
 - PyCuda
 - ONNX
-- TensorRT
+- TensorRT 
 
 Firstly, make sure you have the PyTorch class of your model. Then run;
 ```
