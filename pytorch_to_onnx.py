@@ -1,9 +1,6 @@
 import torch
 import sys
-import onnx
-import os
 import argparse
-import numpy as np
 from models import Yolov4
 
 def export_onnx_model(onnx_path, batches, num_classes, input_h, input_w):
