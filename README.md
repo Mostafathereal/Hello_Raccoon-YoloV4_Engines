@@ -12,7 +12,7 @@ Please see this Google drive folder for large files including the pytorch weight
 https://drive.google.com/drive/folders/1aMiWU2l_wy2ssDV21KPPnjARXZAezMwz?usp=sharing
 
 ## Training on Google Colab
-- Follow the "YoloV4_Custom_Train" notebook I created above 
+- Follow the "YoloV4_Custom_Train" notebook above 
 - Data set for this project collected from Roboflow.ai 
   - They provide data preprossessing and augmentation services
 - Depending on the format of your dataset you may have to change the `get_item` method in "dataset.py"
